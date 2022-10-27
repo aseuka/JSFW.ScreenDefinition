@@ -1,0 +1,673 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5A536F7B-A363-4F4D-B0F9-1715ABA9BA4E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>JSFW</RootNamespace>
+    <AssemblyName>JSFW.ScreenDefinition</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>C:\JSFW\ScreenDefinition\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://aseuka.tistory.com/</InstallUrl>
+    <MinimumRequiredVersion>1.0.0.20</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>aseuka.tistory.com.htm</WebPage>
+    <ApplicationRevision>20</ApplicationRevision>
+    <ApplicationVersion>1.0.0.20</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F8393FC0CAB53FD8174CD26B2360F8FC4A682A85</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>JSFW.ScreenDefinition_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Greenshot, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>RefDlls\Greenshot.dll</HintPath>
+    </Reference>
+    <Reference Include="GreenshotPlugin, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>RefDlls\GreenshotPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="JSFW.GridDesignerCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Fake\JSFW.GridDesignerCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Ink, Version=6.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_64\Microsoft.Ink\6.1.0.0__31bf3856ad364e35\Microsoft.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SourceGrid, Version=4.30.4544.41914, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Fake\SourceGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EditMemo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditMemo.Designer.cs">
+      <DependentUpon>EditMemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditScreenDocumentDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditScreenDocumentDetail.Designer.cs">
+      <DependentUpon>EditScreenDocumentDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditScreenDocumentSlideList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditScreenDocumentSlideList.Designer.cs">
+      <DependentUpon>EditScreenDocumentSlideList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditSlide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditSlide.Designer.cs">
+      <DependentUpon>EditSlide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\CreateTemplateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fake\CreateTemplateForm.Designer.cs">
+      <DependentUpon>CreateTemplateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Designer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\Designer.Designer.cs">
+      <DependentUpon>Designer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkComboBox.Designer.cs">
+      <DependentUpon>EditorFkComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkCodeFind.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkCodeFind.Designer.cs">
+      <DependentUpon>EditorFkCodeFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkCalendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkCalendar.Designer.cs">
+      <DependentUpon>EditorFkCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkDataGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkDataGrid.Designer.cs">
+      <DependentUpon>EditorFkDataGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkChart.Designer.cs">
+      <DependentUpon>EditorFkChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkImage.Designer.cs">
+      <DependentUpon>EditorFkImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkTree.Designer.cs">
+      <DependentUpon>EditorFkTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkTabControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkTabControl.Designer.cs">
+      <DependentUpon>EditorFkTabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkPanel.Designer.cs">
+      <DependentUpon>EditorFkPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkCheck.Designer.cs">
+      <DependentUpon>EditorFkCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkButton.Designer.cs">
+      <DependentUpon>EditorFkButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkLabel.Designer.cs">
+      <DependentUpon>EditorFkLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorFkTextBox.designer.cs">
+      <DependentUpon>EditorFkTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fake\Editor\EditorForm.designer.cs">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\FkButton.designer.cs">
+      <DependentUpon>FkButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\FkChart.Designer.cs">
+      <DependentUpon>FkChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkCheckBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\FkCheckBox.designer.cs">
+      <DependentUpon>FkCheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkCalendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\FkCalendar.Designer.cs">
+      <DependentUpon>FkCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkCodeFind.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\FkCodeFind.Designer.cs">
+      <DependentUpon>FkCodeFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkDataGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fake\FkDataGrid.Designer.cs">
+      <DependentUpon>FkDataGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\FkImage.designer.cs">
+      <DependentUpon>FkImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\FkLabel.designer.cs">
+      <DependentUpon>FkLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fake\FkPanel.designer.cs">
+      <DependentUpon>FkPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkRadioButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\FkRadioButton.designer.cs">
+      <DependentUpon>FkRadioButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fake\FkTabControl.designer.cs">
+      <DependentUpon>FkTabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\FkTextBox.designer.cs">
+      <DependentUpon>FkTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\FkTree.Designer.cs">
+      <DependentUpon>FkTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\FkUserControl.Designer.cs">
+      <DependentUpon>FkUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\FkComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\FkComboBox.designer.cs">
+      <DependentUpon>FkComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\JSFW_ChartII.cs" />
+    <Compile Include="Fake\OpenSlideUIScreenListFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fake\OpenSlideUIScreenListFrom.Designer.cs">
+      <DependentUpon>OpenSlideUIScreenListFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Popup\ComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fake\Popup\ComboBox.designer.cs">
+      <DependentUpon>ComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Popup\CustomComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fake\Popup\GripBounds.cs" />
+    <Compile Include="Fake\Popup\NativeMethods.cs" />
+    <Compile Include="Fake\Popup\OldNewEvent.cs" />
+    <Compile Include="Fake\Popup\Popup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fake\Popup\Popup.designer.cs">
+      <DependentUpon>Popup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Popup\PopupAnimations.cs" />
+    <Compile Include="Fake\Popup\PopupComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fake\Popup\PopupComboBox.designer.cs">
+      <DependentUpon>PopupComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\Popup\PopupControl.cs" />
+    <Compile Include="Fake\ToolBox\ToolBoxItem_Template.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\ToolBox\ToolBoxItem_Template.Designer.cs">
+      <DependentUpon>ToolBoxItem_Template.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\ToolBox\ToolBoxItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fake\ToolBox\ToolBoxItem.Designer.cs">
+      <DependentUpon>ToolBoxItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FunctionDefinitionItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FunctionDefinitionItemControl.Designer.cs">
+      <DependentUpon>FunctionDefinitionItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Label.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MnuManagerFm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MnuManagerFm.designer.cs">
+      <DependentUpon>MnuManagerFm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewSD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewSD.Designer.cs">
+      <DependentUpon>NewSD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NumberMemo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NumberMemo.Designer.cs">
+      <DependentUpon>NumberMemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PenDraw.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SDMiniView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SDMiniView.Designer.cs">
+      <DependentUpon>SDMiniView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SDTopView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SDTopView.Designer.cs">
+      <DependentUpon>SDTopView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetBackgroundImageFm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetBackgroundImageFm.Designer.cs">
+      <DependentUpon>SetBackgroundImageFm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlideItemView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SlideItemView.Designer.cs">
+      <DependentUpon>SlideItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fake\UIDesigner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fake\UIDesigner.Designer.cs">
+      <DependentUpon>UIDesigner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestLogViewFm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestLogViewFm.Designer.cs">
+      <DependentUpon>TestLogViewFm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ux.cs" />
+    <EmbeddedResource Include="EditMemo.resx">
+      <DependentUpon>EditMemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditScreenDocumentDetail.resx">
+      <DependentUpon>EditScreenDocumentDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditScreenDocumentSlideList.resx">
+      <DependentUpon>EditScreenDocumentSlideList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditSlide.resx">
+      <DependentUpon>EditSlide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\CreateTemplateForm.resx">
+      <DependentUpon>CreateTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Designer.resx">
+      <DependentUpon>Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Editor\EditorFkComboBox.resx">
+      <DependentUpon>EditorFkComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Editor\EditorFkCodeFind.resx">
+      <DependentUpon>EditorFkCodeFind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Editor\EditorFkCalendar.resx">
+      <DependentUpon>EditorFkCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Editor\EditorFkDataGrid.resx">
+      <DependentUpon>EditorFkDataGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Editor\EditorFkChart.resx">
+      <DependentUpon>EditorFkChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Editor\EditorFkImage.resx">
+      <DependentUpon>EditorFkImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Editor\EditorFkTree.resx">
+      <DependentUpon>EditorFkTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Editor\EditorFkTabControl.resx">
+      <DependentUpon>EditorFkTabControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Editor\EditorFkPanel.resx">
+      <DependentUpon>EditorFkPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Editor\EditorFkCheck.resx">
+      <DependentUpon>EditorFkCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Editor\EditorFkButton.resx">
+      <DependentUpon>EditorFkButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Editor\EditorFkLabel.resx">
+      <DependentUpon>EditorFkLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Editor\EditorFkTextBox.resx">
+      <DependentUpon>EditorFkTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\Editor\EditorForm.resx">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkButton.resx">
+      <DependentUpon>FkButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkChart.resx">
+      <DependentUpon>FkChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkCheckBox.resx">
+      <DependentUpon>FkCheckBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkCalendar.resx">
+      <DependentUpon>FkCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkCodeFind.resx">
+      <DependentUpon>FkCodeFind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkDataGrid.resx">
+      <DependentUpon>FkDataGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkImage.resx">
+      <DependentUpon>FkImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkLabel.resx">
+      <DependentUpon>FkLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkPanel.resx">
+      <DependentUpon>FkPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkRadioButton.resx">
+      <DependentUpon>FkRadioButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkTabControl.resx">
+      <DependentUpon>FkTabControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkTextBox.resx">
+      <DependentUpon>FkTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkTree.resx">
+      <DependentUpon>FkTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkUserControl.resx">
+      <DependentUpon>FkUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\FkComboBox.resx">
+      <DependentUpon>FkComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\OpenSlideUIScreenListFrom.resx">
+      <DependentUpon>OpenSlideUIScreenListFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\ToolBox\ToolBoxItem_Template.resx">
+      <DependentUpon>ToolBoxItem_Template.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\ToolBox\ToolBoxItem.resx">
+      <DependentUpon>ToolBoxItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FunctionDefinitionItemControl.resx">
+      <DependentUpon>FunctionDefinitionItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MnuManagerFm.resx">
+      <DependentUpon>MnuManagerFm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewSD.resx">
+      <DependentUpon>NewSD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NumberMemo.resx">
+      <DependentUpon>NumberMemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SDMiniView.resx">
+      <DependentUpon>SDMiniView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SDTopView.resx">
+      <DependentUpon>SDTopView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetBackgroundImageFm.resx">
+      <DependentUpon>SetBackgroundImageFm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlideItemView.resx">
+      <DependentUpon>SlideItemView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fake\UIDesigner.resx">
+      <DependentUpon>UIDesigner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestLogViewFm.resx">
+      <DependentUpon>TestLogViewFm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="JSFW.ScreenDefinition_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Right2424.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Left2424.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Fake\JSFW.GridDesignerCommon.dll" />
+    <Content Include="Fake\SourceGrid.dll" />
+    <Content Include="RefDlls\Greenshot.dll" />
+    <Content Include="RefDlls\GreenshotPlugin.dll" />
+    <Content Include="작업내역.txt" />
+    <None Include="Resources\Post.png" />
+    <None Include="Resources\calendar.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\excel.png" />
+    <None Include="Resources\Plus.png" />
+    <None Include="Resources\Minus.png" />
+    <None Include="Resources\Settings.png" />
+    <None Include="Resources\Play.png" />
+    <None Include="Resources\Find.png" />
+    <None Include="Resources\Clip.png" />
+    <None Include="Resources\Process.png" />
+    <None Include="Resources\UnLock.png" />
+    <None Include="Resources\Lock.png" />
+    <None Include="Resources\cusor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2%28x86 및 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
