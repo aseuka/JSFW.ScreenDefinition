@@ -328,8 +328,6 @@ namespace JSFW.ScreenDefinition
 
         public List<FunctionDefinition> Functions { get; set; } = new List<FunctionDefinition>();
 
-        public List<Memo> Memos { get; set; } = new List<Memo>();
-        
         public List<Graffity> Graffities { get; set; } = new List<Graffity>();
 
         public string BackgroundImagePath { get; set; }
@@ -449,7 +447,9 @@ namespace JSFW.ScreenDefinition
         public string BackgroundImagePath { get; set; } = null;
 
         public string ImagePath { get => GetImagePath(); }
-      
+
+        public List<Memo> Memos { get; set; } = new List<Memo>();
+
         private string GetImagePath()
         {
             string dir = $"{MainForm.__ROOT_DIR}{ScreenDocumentID}\\{SlideID}\\";

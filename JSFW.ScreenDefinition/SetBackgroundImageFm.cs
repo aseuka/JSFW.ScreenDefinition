@@ -98,5 +98,10 @@ namespace JSFW
                 pictureBox1.Image = img.Clone() as Image;
             }
         }
+
+        private void btnCapture_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

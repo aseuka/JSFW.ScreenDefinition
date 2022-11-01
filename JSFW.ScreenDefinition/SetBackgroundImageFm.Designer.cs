@@ -100,6 +100,7 @@
             this.btnCapture.Text = "캡쳐";
             this.btnCapture.UseVisualStyleBackColor = true;
             this.btnCapture.Visible = false;
+            this.btnCapture.Click += new System.EventHandler(this.btnCapture_Click);
             // 
             // btnOK
             // 

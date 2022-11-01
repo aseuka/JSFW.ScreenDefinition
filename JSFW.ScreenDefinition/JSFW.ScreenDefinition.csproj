@@ -101,6 +101,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Fake\JSFW.GridDesignerCommon.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>RefDlls\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Ink, Version=6.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\assembly\GAC_64\Microsoft.Ink\6.1.0.0__31bf3856ad364e35\Microsoft.Ink.dll</HintPath>
@@ -637,6 +641,7 @@
     <Content Include="Fake\SourceGrid.dll" />
     <Content Include="RefDlls\Greenshot.dll" />
     <Content Include="RefDlls\GreenshotPlugin.dll" />
+    <Content Include="RefDlls\log4net.dll" />
     <Content Include="작업내역.txt" />
     <None Include="Resources\Post.png" />
     <None Include="Resources\calendar.png" />
