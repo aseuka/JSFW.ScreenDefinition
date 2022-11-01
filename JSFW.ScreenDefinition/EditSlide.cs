@@ -168,7 +168,7 @@ namespace JSFW.ScreenDefinition
             TriggerSaving();
         }
 
-        internal void SetData(Slide slide)
+        internal void SetData(Slide slide, int pgIndex = 0)
         {
             if (pd.ImageDataChanged)
             {
@@ -185,7 +185,7 @@ namespace JSFW.ScreenDefinition
                 lbPenColor.BackColor = Color.OrangeRed;
                 pd.SetPen(lbPenColor.BackColor, pd.PenWidth);
 
-                PageIndex = 0;
+                PageIndex = pgIndex;
 
                 chUsePen.Checked = false;
                 rdoErase.Enabled = chUsePen.Checked;
@@ -341,77 +341,8 @@ namespace JSFW.ScreenDefinition
                 PageIndex--;
                 var grff = Get();
 
-                try
-                {
-                    IsDataBinding = true;
-                    txtTip.Text = grff.Tip;
-                }
-                finally
-                {
-                    IsDataBinding = false;
-                }
-
-                pd.ImagePath = grff.ImagePath;
-                pd.BackgroundImagePath = grff.BackgroundImagePath; // 화면캡쳐, 디자인 캡쳐.
-
-                ClearMemos();
-
-                try
-                {
-                    foreach (Memo mm in grff.Memos)
-                    {
-                        EditMemo em = new EditMemo();
-                        em.SetData(mm);
-                        pnlMemo.Controls.Add(em);
-                        em.Dock = DockStyle.Top;
-                        em.BringToFront();
-                        em.ToSave = () =>
-                        {
-                            TriggerSaving();
-                            foreach (NumberMemo nmm in pictureBox1.Controls)
-                            {
-                                nmm.SetData(nmm.Data);
-                            }
-                        };
-                        em.ToDelNumber = (_mm) =>
-                        {
-                            for (int loop = pictureBox1.Controls.Count - 1; loop >= 0; loop--)
-                            {
-                                NumberMemo nmm = pictureBox1.Controls[loop] as NumberMemo;
-                                if (nmm != null)
-                                {
-                                    if (nmm.Data.ID == _mm.ID)
-                                    {
-                                        using (nmm)
-                                        {
-                                            pictureBox1.Controls.Remove(nmm);
-                                            nmm.Move -= Nummm_Move;
-                                            nmm.StateChanged -= Nummm_StateChanged;
-                                        }
-                                        _mm.UseNumber = false;
-                                        TriggerSaving();
-                                        // break;
-                                    }
-                                }
-                            }
-                        };
-
-                        if (mm.UseNumber)
-                        {
-                            NumberMemo nummm = new NumberMemo();
-                            pictureBox1.Controls.Add(nummm);
-                            nummm.SetData(mm);
-                            nummm.Move += Nummm_Move;
-                            nummm.StateChanged += Nummm_StateChanged;
-                        }
-                        em.Focus();
-                    }
-                }
-                finally
-                {
-
-                }
-
+                SetData(Slide, PageIndex);
+                 
                 if (rdoErase.Checked)
                 {
                     pd.SetEraser();
@@ -446,77 +377,8 @@ namespace JSFW.ScreenDefinition
                 PageIndex++;
                 var grff = Get();
 
-                try
-                {
-                    IsDataBinding = true;
-                    txtTip.Text = grff.Tip;
-                }
-                finally
-                {
-                    IsDataBinding = false;
-                }
-
-                pd.ImagePath = grff.ImagePath;
-                pd.BackgroundImagePath = grff.BackgroundImagePath; // 화면캡쳐, 디자인 캡쳐.
-
-                ClearMemos();
-
-                try
-                {
-                    foreach (Memo mm in grff.Memos)
-                    {
-                        EditMemo em = new EditMemo();
-                        em.SetData(mm);
-                        pnlMemo.Controls.Add(em);
-                        em.Dock = DockStyle.Top;
-                        em.BringToFront();
-                        em.ToSave = () =>
-                        {
-                            TriggerSaving();
-                            foreach (NumberMemo nmm in pictureBox1.Controls)
-                            {
-                                nmm.SetData(nmm.Data);
-                            }
-                        };
-                        em.ToDelNumber = (_mm) =>
-                        {
-                            for (int loop = pictureBox1.Controls.Count - 1; loop >= 0; loop--)
-                            {
-                                NumberMemo nmm = pictureBox1.Controls[loop] as NumberMemo;
-                                if (nmm != null)
-                                {
-                                    if (nmm.Data.ID == _mm.ID)
-                                    {
-                                        using (nmm)
-                                        {
-                                            pictureBox1.Controls.Remove(nmm);
-                                            nmm.Move -= Nummm_Move;
-                                            nmm.StateChanged -= Nummm_StateChanged;
-                                        }
-                                        _mm.UseNumber = false;
-                                        TriggerSaving();
-                                        // break;
-                                    }
-                                }
-                            }
-                        };
-
-                        if (mm.UseNumber)
-                        {
-                            NumberMemo nummm = new NumberMemo();
-                            pictureBox1.Controls.Add(nummm);
-                            nummm.SetData(mm);
-                            nummm.Move += Nummm_Move;
-                            nummm.StateChanged += Nummm_StateChanged;
-                        }
-                        em.Focus();
-                    }
-                }
-                finally
-                {
-
-                }
-
+                SetData(Slide, PageIndex);
+                 
                 if (rdoErase.Checked)
                 {
                     pd.SetEraser();
@@ -880,7 +742,6 @@ namespace JSFW.ScreenDefinition
                 //낙서판을 삭제하면서 
                 //에러를 예외처리함( 따로 알고리즘 없음 )
 
-                ClearMemos();
 
                 string beforeEmptyAndBackGroundImage = CurrentGraffity.BackgroundImagePath;
                 Slide.Graffities.Remove(CurrentGraffity);
@@ -891,6 +752,10 @@ namespace JSFW.ScreenDefinition
                 }
                 pd.BackgroundImagePath = null;
                 pd.ImagePath = null;
+                txtTip.Text = "";
+
+                ClearMemos();
+
                 if (File.Exists(CurrentGraffity.ImagePath))
                 {
                     File.Delete(CurrentGraffity.ImagePath);                    
@@ -917,74 +782,10 @@ namespace JSFW.ScreenDefinition
                         CurrentGraffity.BackgroundImagePath = beforeEmptyAndBackGroundImage;
                     } 
                 }
-                pd.BackgroundImagePath = CurrentGraffity.BackgroundImagePath;
-                pd.ImagePath = CurrentGraffity.ImagePath;
-                try
-                {
-                    IsDataBinding = true;
-                    txtTip.Text = CurrentGraffity.Tip;
 
-                }
-                finally
-                {
-                    IsDataBinding = false;
-                }
-
-                try
-                {
-                    foreach (Memo mm in CurrentGraffity.Memos)
-                    {
-                        EditMemo em = new EditMemo();
-                        em.SetData(mm);
-                        pnlMemo.Controls.Add(em);
-                        em.Dock = DockStyle.Top;
-                        em.BringToFront();
-                        em.ToSave = () =>
-                        {
-                            TriggerSaving();
-                            foreach (NumberMemo nmm in pictureBox1.Controls)
-                            {
-                                nmm.SetData(nmm.Data);
-                            }
-                        };
-                        em.ToDelNumber = (_mm) =>
-                        {
-                            for (int loop = pictureBox1.Controls.Count - 1; loop >= 0; loop--)
-                            {
-                                NumberMemo nmm = pictureBox1.Controls[loop] as NumberMemo;
-                                if (nmm != null)
-                                {
-                                    if (nmm.Data.ID == _mm.ID)
-                                    {
-                                        using (nmm)
-                                        {
-                                            pictureBox1.Controls.Remove(nmm);
-                                            nmm.Move -= Nummm_Move;
-                                            nmm.StateChanged -= Nummm_StateChanged;
-                                        }
-                                        _mm.UseNumber = false;
-                                        TriggerSaving();
-                                        // break;
-                                    }
-                                }
-                            }
-                        };
-
-                        if (mm.UseNumber)
-                        {
-                            NumberMemo nummm = new NumberMemo();
-                            pictureBox1.Controls.Add(nummm);
-                            nummm.SetData(mm);
-                            nummm.Move += Nummm_Move;
-                            nummm.StateChanged += Nummm_StateChanged;
-                        }
-                        em.Focus();
-                    }
-                }
-                finally
-                {
-                    TriggerSaving();
-                }
+                SetData(Slide);
+                TriggerSaving();
+                 
                 Invalidate(true);
             }
         }

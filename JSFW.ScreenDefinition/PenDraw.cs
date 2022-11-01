@@ -253,6 +253,7 @@ namespace JSFW.ScreenDefinition
            
             HostControl.Image = bmp;
             bmp?.MakeTransparent(Color.Transparent);
+            ImageDataChanged = false;
         }
 
         public void SaveImage(bool isSave)
