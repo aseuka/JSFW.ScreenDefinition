@@ -200,9 +200,10 @@ namespace JSFW.ScreenDefinition
                 if (Slide != null)
                 {
                     txtTitle.Text = Slide.Title; txtTitle.ReadOnly = false;
-                    txtTip.Text = Slide.Tip;
                     pictureBox1.Enabled = true;
+
                     var grff = Get();
+                    txtTip.Text = grff.Tip;
                     pd.ImagePath = grff.ImagePath;
                     pd.BackgroundImagePath = grff.BackgroundImagePath; // 화면캡쳐, 디자인 캡쳐.
 
@@ -339,6 +340,17 @@ namespace JSFW.ScreenDefinition
                 pd.ClearQue();
                 PageIndex--;
                 var grff = Get();
+
+                try
+                {
+                    IsDataBinding = true;
+                    txtTip.Text = grff.Tip;
+                }
+                finally
+                {
+                    IsDataBinding = false;
+                }
+
                 pd.ImagePath = grff.ImagePath;
                 pd.BackgroundImagePath = grff.BackgroundImagePath; // 화면캡쳐, 디자인 캡쳐.
 
@@ -433,6 +445,17 @@ namespace JSFW.ScreenDefinition
 
                 PageIndex++;
                 var grff = Get();
+
+                try
+                {
+                    IsDataBinding = true;
+                    txtTip.Text = grff.Tip;
+                }
+                finally
+                {
+                    IsDataBinding = false;
+                }
+
                 pd.ImagePath = grff.ImagePath;
                 pd.BackgroundImagePath = grff.BackgroundImagePath; // 화면캡쳐, 디자인 캡쳐.
 
@@ -575,7 +598,7 @@ namespace JSFW.ScreenDefinition
         {
             if (IsDataBinding) return;
 
-            Slide.Tip = txtTip.Text;
+            CurrentGraffity.Tip = txtTip.Text;
             TriggerSaving();
         }
 
@@ -919,6 +942,8 @@ namespace JSFW.ScreenDefinition
             // 대표 낙서페이지로 이동.
             if (Slide == null) return;
             if (CurrentGraffity == null) return;
+
+            if (MessageBox.Show("대표 이미지로 옮기시겠습니까?", "확인", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             if (Slide.Graffities.Any(g => g == CurrentGraffity))
             {

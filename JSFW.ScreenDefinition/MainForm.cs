@@ -321,11 +321,6 @@ namespace JSFW.ScreenDefinition
         /// </summary>
         public string Title { get; set; }
 
-        /// <summary>
-        /// 설명
-        /// </summary>
-        public string Tip { get; set; }
-
         public List<FunctionDefinition> Functions { get; set; } = new List<FunctionDefinition>();
 
         public List<Graffity> Graffities { get; set; } = new List<Graffity>();
@@ -447,6 +442,11 @@ namespace JSFW.ScreenDefinition
         public string BackgroundImagePath { get; set; } = null;
 
         public string ImagePath { get => GetImagePath(); }
+
+        /// <summary>
+        /// 설명
+        /// </summary>
+        public string Tip { get; set; }
 
         public List<Memo> Memos { get; set; } = new List<Memo>();
 
