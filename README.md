@@ -23,6 +23,8 @@
 - 화면 디자인 ( 드래그 드랍으로 컨트롤들 배치 )
 ![image](https://user-images.githubusercontent.com/116536524/198244507-66d58305-3840-4b00-a99c-f52b18eee6c9.png)
  
+ 
+ 
 
 
 --- 
@@ -38,4 +40,13 @@
 - 그린샷에서 log4net 사용하고 있으니 보안관련 확인이 필요함. 
 - ( 전에 log4 관련 보안이슈가 있었는데... )
 ```
+
+# 오픈시 에러 <br />
+![image](https://user-images.githubusercontent.com/116536524/199480119-f075653d-f3d4-4d96-837a-71001abad05a.png)
+
+해결방법 <br />
+파워쉘 : C:\Windows\System32> gci -Recurse "프로젝트가 있는 폴더경로" | Unblock-File <br />
+  (( .sln 파일이 있는 폴더에 해주면 된다. )) <br />
+참조 : https://happytomorrow.net/217
+
 
