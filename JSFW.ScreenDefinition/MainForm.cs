@@ -301,6 +301,7 @@ namespace JSFW.ScreenDefinition
         public List<Slide> Slides { get; set; } = new List<Slide>();
     }
      
+    [System.Diagnostics.DebuggerDisplay("{Order}. {Title}")]
     public class Slide
     {
         public string ScreenDocumentID { get; set; }

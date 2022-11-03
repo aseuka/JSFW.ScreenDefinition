@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.chkDel = new System.Windows.Forms.CheckBox();
+            this.btnUP = new System.Windows.Forms.Button();
+            this.btnDN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // chkDel
@@ -45,10 +47,42 @@
             this.chkDel.UseVisualStyleBackColor = true;
             this.chkDel.Visible = false;
             // 
+            // btnUP
+            // 
+            this.btnUP.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnUP.BackgroundImage = global::JSFW.Properties.Resources.ArrowUPGray;
+            this.btnUP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUP.Font = new System.Drawing.Font("굴림", 7F);
+            this.btnUP.Location = new System.Drawing.Point(4, 4);
+            this.btnUP.Name = "btnUP";
+            this.btnUP.Size = new System.Drawing.Size(16, 16);
+            this.btnUP.TabIndex = 2;
+            this.btnUP.UseVisualStyleBackColor = true;
+            this.btnUP.Visible = false;
+            this.btnUP.Click += new System.EventHandler(this.btnUP_Click);
+            // 
+            // btnDN
+            // 
+            this.btnDN.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnDN.BackgroundImage = global::JSFW.Properties.Resources.ArrowDownGray;
+            this.btnDN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDN.Font = new System.Drawing.Font("굴림", 7F);
+            this.btnDN.Location = new System.Drawing.Point(300, 4);
+            this.btnDN.Name = "btnDN";
+            this.btnDN.Size = new System.Drawing.Size(16, 16);
+            this.btnDN.TabIndex = 2;
+            this.btnDN.UseVisualStyleBackColor = true;
+            this.btnDN.Visible = false;
+            this.btnDN.Click += new System.EventHandler(this.btnDN_Click);
+            // 
             // SlideItemView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnUP);
+            this.Controls.Add(this.btnDN);
             this.Controls.Add(this.chkDel);
             this.Name = "SlideItemView";
             this.Padding = new System.Windows.Forms.Padding(3, 3, 0, 0);
@@ -60,5 +94,7 @@
         #endregion
 
         private System.Windows.Forms.CheckBox chkDel;
+        private System.Windows.Forms.Button btnDN;
+        private System.Windows.Forms.Button btnUP;
     }
 }

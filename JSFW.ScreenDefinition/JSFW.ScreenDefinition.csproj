@@ -639,6 +639,8 @@
   <ItemGroup>
     <Content Include="Fake\JSFW.GridDesignerCommon.dll" />
     <Content Include="Fake\SourceGrid.dll" />
+    <Content Include="RefDlls\ArrowDownGray.PNG" />
+    <Content Include="RefDlls\ArrowUPGray.PNG" />
     <Content Include="RefDlls\Greenshot.dll" />
     <Content Include="RefDlls\GreenshotPlugin.dll" />
     <Content Include="RefDlls\log4net.dll" />

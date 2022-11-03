@@ -63,5 +63,34 @@ namespace JSFW.ScreenDefinition
             chkDel.Checked = false;
             chkDel.Visible = show;
         }
+
+
+
+        public event EventHandler<UpDnEventArgs> UpDownMoved = null;
+        private void btnUP_Click(object sender, EventArgs e)
+        {
+            UpDownMoved?.Invoke(this, new UpDnEventArgs(+1));
+        }
+
+        private void btnDN_Click(object sender, EventArgs e)
+        {
+            UpDownMoved?.Invoke(this, new UpDnEventArgs(-1));
+        }
+
+        internal void ChangeOrder(bool visibled)
+        {
+            btnUP.Visible = visibled;
+            btnDN.Visible = visibled;
+        }
+    }
+
+    public class UpDnEventArgs : EventArgs
+    {
+        public int Increase { get; private set; } = 0;
+
+        public UpDnEventArgs(int inc ) : base()
+        {
+            Increase = inc;
+        }
     }
 }

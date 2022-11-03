@@ -71,6 +71,7 @@ namespace JSFW.ScreenDefinition
                     {
                         item.MouseDown -= Item_MouseDown;
                         item.MouseDoubleClick -= Item_MouseDoubleClick;
+                        item.UpDownMoved -= Item_UpDownMoved;
                     }
                 }
                  
@@ -92,6 +93,7 @@ namespace JSFW.ScreenDefinition
                     item.BringToFront();
                     item.MouseDown += Item_MouseDown;
                     item.MouseDoubleClick += Item_MouseDoubleClick;
+                    item.UpDownMoved += Item_UpDownMoved;
 
                     if (oldSlide == null && order == 1)
                     {
@@ -165,11 +167,38 @@ namespace JSFW.ScreenDefinition
             item.BringToFront();
             item.MouseDown += Item_MouseDown;
             item.MouseDoubleClick += Item_MouseDoubleClick;
+            item.UpDownMoved += Item_UpDownMoved;
 
             SetFixedCurrentItemView(item);
             SetCurrentItemView(item);
             OnSlideSelected(CurrentItemView?.Data);
             OnSave();
+
+            chkOrderChange.Enabled = true;
+        }
+
+        private void Item_UpDownMoved(object sender, UpDnEventArgs e)
+        {
+            SlideItemView moveItem = sender as SlideItemView;
+            if (moveItem != null)
+            {
+                Slide slide = moveItem.Data;
+                int idx = panel1.Controls.IndexOf(moveItem);
+                if ((idx + e.Increase) < 0) return;
+                if (panel1.Controls.Count <= (idx + e.Increase)) return;
+                 
+                panel1.Controls.SetChildIndex(moveItem, idx + e.Increase);
+
+                int offset = Detail.Slides.Count;
+                Detail.Slides.Clear();
+                foreach (SlideItemView item in panel1.Controls) //거꾸로... 
+                {
+                    item.Data.Order =  offset--;
+                    Detail.Slides.Insert(0, item.Data);
+                    item.Invalidate();
+                }
+                OnSave();
+            }
         }
 
         private void btnDel_Click(object sender, EventArgs e)
@@ -182,6 +211,7 @@ namespace JSFW.ScreenDefinition
 
             btnDelOK.BringToFront();
             btnDelCancel.BringToFront();
+            chkOrderChange.Enabled = false;
         }
 
         private void btnDelOK_Click(object sender, EventArgs e)
@@ -205,6 +235,7 @@ namespace JSFW.ScreenDefinition
                 {
                     item.MouseDown -= Item_MouseDown;
                     item.MouseDoubleClick -= Item_MouseDoubleClick;
+                    item.UpDownMoved -= Item_UpDownMoved;
                     Detail.Slides.Remove( item.Data );
                 }
             }
@@ -219,6 +250,7 @@ namespace JSFW.ScreenDefinition
             }
             btnAdd.BringToFront();
             btnDel.BringToFront();
+            chkOrderChange.Enabled = true;
         }
 
         private void btnDelCancel_Click(object sender, EventArgs e)
@@ -230,10 +262,25 @@ namespace JSFW.ScreenDefinition
             }
             btnAdd.BringToFront();
             btnDel.BringToFront();
+            chkOrderChange.Enabled = true;
         }
 
         private void sdMiniView1_Resize(object sender, EventArgs e)
         {
+          
+        }
+
+        private void chkOrderChange_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (SlideItemView item in panel1.Controls)
+            {
+                item.ChangeOrder(chkOrderChange.Checked);
+            }
+
+            btnAdd.Enabled = !chkOrderChange.Checked;
+            btnDel.Enabled = !chkOrderChange.Checked;
+            btnDelOK.Enabled = !chkOrderChange.Checked;
+            btnDelCancel.Enabled = !chkOrderChange.Checked;
 
         }
     }

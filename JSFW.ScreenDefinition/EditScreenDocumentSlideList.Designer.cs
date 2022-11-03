@@ -36,6 +36,7 @@
             this.label1 = new JSFW.Label();
             this.sdMiniView1 = new JSFW.ScreenDefinition.SDMiniView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chkOrderChange = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,6 +119,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.chkOrderChange);
             this.panel2.Controls.Add(this.btnDel);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.btnDelOK);
@@ -128,6 +130,21 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(201, 28);
             this.panel2.TabIndex = 5;
+            // 
+            // chkOrderChange
+            // 
+            this.chkOrderChange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkOrderChange.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkOrderChange.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.chkOrderChange.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.chkOrderChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkOrderChange.Location = new System.Drawing.Point(51, 1);
+            this.chkOrderChange.Name = "chkOrderChange";
+            this.chkOrderChange.Size = new System.Drawing.Size(63, 26);
+            this.chkOrderChange.TabIndex = 4;
+            this.chkOrderChange.Text = "순위변경";
+            this.chkOrderChange.UseVisualStyleBackColor = true;
+            this.chkOrderChange.CheckedChanged += new System.EventHandler(this.chkOrderChange_CheckedChanged);
             // 
             // EditScreenDocumentSlideList
             // 
@@ -155,5 +172,6 @@
         private System.Windows.Forms.Button btnDelOK;
         private System.Windows.Forms.Button btnDelCancel;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.CheckBox chkOrderChange;
     }
 }
