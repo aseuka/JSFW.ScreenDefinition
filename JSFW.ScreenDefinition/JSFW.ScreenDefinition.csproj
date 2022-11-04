@@ -24,11 +24,11 @@
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>http://aseuka.tistory.com/</InstallUrl>
-    <MinimumRequiredVersion>1.0.0.20</MinimumRequiredVersion>
+    <MinimumRequiredVersion>1.0.0.22</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>aseuka.tistory.com.htm</WebPage>
-    <ApplicationRevision>20</ApplicationRevision>
-    <ApplicationVersion>1.0.0.20</ApplicationVersion>
+    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationVersion>1.0.0.22</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
