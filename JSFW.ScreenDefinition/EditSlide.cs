@@ -701,7 +701,11 @@ namespace JSFW.ScreenDefinition
         {
             // 배경이미지 변경 !!!
             // [삭제], 사진, 캡쳐, 디자인된 화면적용.
-            using (SetBackgroundImageFm sbi = new SetBackgroundImageFm())
+            string dirCapture = $"{MainForm.__ROOT_DIR}\\CaptureTempImages";
+
+            if (!Directory.Exists(dirCapture)) Directory.CreateDirectory(dirCapture);
+
+            using (SetBackgroundImageFm sbi = new SetBackgroundImageFm(dirCapture))
             {
                 sbi.SetData(Slide, CurrentGraffity);
                 if (sbi.ShowDialog(this) == DialogResult.OK)
